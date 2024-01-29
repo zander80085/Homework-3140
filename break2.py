@@ -48,7 +48,7 @@ time_start = time.time()
 for i in range(len(usernames)):
     for j in range(len(passwords)):
         arguments = ['python', 'Login.py', usernames[i], passwords[j]]
-        process = subprocess.Popen(arguments)
+        process = subprocess.run(arguments)
 time_end = time.time()
 total_time = time_end - time_start
 print(f"Total time taken: {total_time}s")

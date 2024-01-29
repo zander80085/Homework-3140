@@ -27,7 +27,7 @@ username = "Adam"
 time_start = time.time()
 for i in range(len(passwords)):
     arguments = ['python', 'Login.py', username, passwords[i]]
-    process = subprocess.Popen(arguments)
+    process = subprocess.run(arguments)
     processes.append(process)
 time_end = time.time()
 total_time = time_end - time_start

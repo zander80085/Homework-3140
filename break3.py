@@ -2,12 +2,10 @@
 import time
 import subprocess
 
-passwords_100k = open("PwnedPWs100k.txt", "r", encoding='utf-8')
-
-line_count = 0
+password_list = []
 with open('PwnedPWs100k.txt', 'r', encoding='utf-8') as file:
     for line in file:
-        line_count += 1
+        password_list.append(line)
 
 usernames = [
     "Charles",
@@ -30,9 +28,9 @@ usernames = [
 
 time_start = time.time()
 for i in range(len(usernames)):
-    for j in range(line_count):
-        arguments = ['python', 'Login.py', usernames[i], passwords_100k.readline(j)]
-        process = subprocess.Popen(arguments)
+    for j in range(len(password_list)):
+        arguments = ['python', 'Login.py', usernames[i], password_list[j]]
+        process = subprocess.run(arguments)
 time_end = time.time()
 total_time = time_end - time_start
 print(f"Total time taken: {total_time}s")
