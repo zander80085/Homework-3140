@@ -5,7 +5,9 @@ import subprocess
 password_list = []
 with open('PwnedPWs100k.txt', 'r', encoding='utf-8') as file:
     for line in file:
-        password_list.append(line)
+        stripped_line = line.strip()
+        if stripped_line:
+            password_list.append(stripped_line)
 
 usernames = [
     "Charles",
