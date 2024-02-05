@@ -29,7 +29,7 @@ def Login():
     if (guess) == hashed[sys.argv[1]]:
         print (f'Login successful. Username: {sys.argv[1]} Password: {sys.argv[2]}')
         f = open('username_password.txt', 'a')
-        f.write(f"Username: {sys.argv[1]} Password: {sys.argv[2]}")
+        f.write(f"Username: {sys.argv[1]} Password: {sys.argv[2]}\n")
         f.close()
         return 1
     else:

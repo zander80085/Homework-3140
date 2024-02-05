@@ -51,4 +51,7 @@ for i in range(len(usernames)):
         process = subprocess.run(arguments)
 time_end = time.time()
 total_time = time_end - time_start
+with open('username_password.txt', "r") as file:
+    for lines in file:
+        print(lines)
 print(f"Total time taken: {total_time}s")
