@@ -19,23 +19,23 @@ if __name__ == "__main__":
             if stripped_line:
                 password_list.append(stripped_line)
     usernames = [
-    "Charles",
-    "Ted",
-    "Tom",
-    "Bonnie",
-    "Clyde",
-    "Kevin",
-    "Andrew",
-    "Jack",
-    "Richard",
-    "Donald",
-    "Kim",
-    "Vlad",
-    "Benedict",
-    "Billy",
-    "Anne",
-    "John"
-    ]   
+    "ForestGreenWolf607",
+    "SkyBlueBear611",
+    "ForestPurpleFalcon522",
+    "OceanPurpleShark246",
+    "OceanGreenBear963",
+    "MountainPurpleShark585",
+    "StarRedWolf267",
+    "SkySilverWolf337",
+    "MountainYellowShark708",
+    "StarGreenBear981",
+    "SkySilverWolf162",
+    "StarSilverBear427",
+    "MountainBlueFalcon157",
+    "ForestGreenShark821",
+    "StarRedEagle761",
+    "RiverOrangeTiger809"
+]
 
     print('running...')
     time_start = time.time()
