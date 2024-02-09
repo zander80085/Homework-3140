@@ -37,7 +37,6 @@ if __name__ == "__main__":
     "RiverOrangeTiger809"
 ]
 
-    print('running...')
     time_start = time.time()
     with multiprocessing.Pool() as pool:
         pool.starmap(break_func, [(username, password_list) for username in usernames])
@@ -46,3 +45,4 @@ if __name__ == "__main__":
     with open('username_password.txt', 'r') as file:
         for line in file:
             print(line)
+    print(f'Total time: {total_time}')
