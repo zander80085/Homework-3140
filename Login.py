@@ -3,7 +3,7 @@
 import hashlib
 import sys
 def Login():
-    gangHashedPWsfile = open(".loginCheck", "r")
+    gangHashedPWsfile = open(".loginCheck.txt", "r")
     gang=[]
     hashed= {}
 

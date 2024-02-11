@@ -1,5 +1,7 @@
 import re
 import hashlib
+import subprocess
+
 with open("hashedPWs.txt", 'r', encoding='utf-8') as file:
     hashed_tuples = []
     for line in file:
@@ -9,7 +11,6 @@ with open("hashedPWs.txt", 'r', encoding='utf-8') as file:
             if " " in spaced_line:
                 line_split = spaced_line.split()
                 hashed_tuples.append((line_split[0], line_split[1]))
-    print(hashed_tuples)
 with open('PwnedPWs100k.txt', 'r', encoding="utf-8") as file:
     password_hash_lst = {}
     for line in file:
@@ -21,10 +22,18 @@ with open('PwnedPWs100k.txt', 'r', encoding="utf-8") as file:
                 password = (stripped_line + str(number))
             password_hash = hashlib.sha256(password.encode()).hexdigest()
             password_hash_lst[password_hash] = password
-            print(password_hash_lst)
 successful_crack = []
 for hash in range(len(hashed_tuples)):
     if hashed_tuples[hash][1] in password_hash_lst:
         successful_crack.append((hashed_tuples[hash][0], hashed_tuples[hash][1], password_hash_lst[hashed_tuples[hash][1]]))
 for element in range(len(successful_crack)):
     print(f'Username: {successful_crack[element][0]}, Password Hash = {successful_crack[element][1]}, Password = {successful_crack[element][2]}') 
+
+def break_func(username, password):
+    arguments = ['python', 'Login.py', username, password]
+    process = subprocess.run(arguments)
+
+if __name__ == "__main__":
+    for user in range(len(successful_crack)):
+        break_func(successful_crack[user][0], successful_crack[user][2])
+        
